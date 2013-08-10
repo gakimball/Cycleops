@@ -1,0 +1,121 @@
+* {
+	margin: 0;
+	padding: 0;
+	line-height: 1em;
+}
+body {
+	font-size: 100%;
+	font-family: sans-serif;
+}
+
+h1, h2 {
+	padding: 1rem;
+}
+
+/* Slider container */
+.cycle-slider {
+	/* Needed */
+	overflow: hidden;
+	white-space: nowrap;
+	position: relative;
+	
+	/* Optional */
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+/* Example one: basic slide over */
+.example-1 {
+	width: 500px;
+	height: 400px;
+}
+	.example-1 > li {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		list-style-type: none;
+		
+		-webkit-transition: left 0.15s linear, height 0.15s linear, top 0.15s linear;
+	}
+	.example-1 .red {
+		background: red;
+		color: #fff;
+	}
+	.example-1 .purple {
+		background: purple;
+		color: white;
+	}
+	.example-1 .rosybrown {
+		background: rosybrown;
+		color: black;
+	}
+	.example-1 .dodgerblue {
+		background: dodgerblue;
+		color: black;
+	}
+	.example-1 .hex {
+		font-size: 1.5em;
+		position: absolute;
+		bottom: 0;
+		padding: 1em;
+	}
+	.example-1 .description {
+		font-size: 3em;
+		position: absolute;
+		bottom: 0;
+		padding: 4rem 1rem;
+	}
+
+	.example-1 .cycle-forward {
+		top: 0;
+		left: 100%;
+	}
+
+	.cycle-button {
+		background: rgba(0,0,0,0.75);
+		color: #fff;
+		display: block;
+		position: absolute;
+		z-index: 10;
+		top: 50%;
+		font-size: 1.25em;
+		padding: 0.5em;
+		text-transform: lowercase;
+		cursor: pointer;
+	}
+	.cycle-button:hover {
+		background: rgba(0,0,0,1);
+	}
+	.cycle-next {
+		right: 0;
+	}
+	.cycle-prev {
+		left: 0;
+	}
+
+/* Example: photo fall in */
+.example-2 {
+	width: 400px;
+	height: 300px;
+	overflow: visible !important;
+}
+	.example-2 > img {
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+		border: 15px solid #ccc;
+		position: absolute;
+		top: 0;
+		left: 0;
+		
+		opacity: 1;
+		-webkit-transform: translate(0px, 0px) rotate(0deg);
+		-webkit-transition: opacity 0.25s linear, -webkit-transform 0.25s linear;
+	}
+	.example-2 .cycle-forward {
+		opacity: 0;
+		-webkit-transform: translate(60px, -75px) rotate(10deg);
+	}
