@@ -48,8 +48,8 @@
 
 			// Check for touch support
 			if (typeof window.ontouchstart !== 'undefined' && typeof $.fn.swipeLeft !== 'undefined') {
-				this.nextButton.hide();
-				this.prevButton.hide();
+				this.$nextButton.hide();
+				this.$prevButton.hide();
 			}
 
 			// Set context for next/prev methods
