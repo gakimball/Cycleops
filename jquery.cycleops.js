@@ -15,11 +15,13 @@
 		prevClass: 'cycle-backward',
 
 		// User settings
-		nextText: 'Next',
-		prevText: 'Prev',
-		useButtonsWithTouch: false,
-		swipeLeftEvent: 'swipeLeft',
-		swipeRightEvent: 'swipeRight',
+		options: {
+			nextText: 'Next',
+			prevText: 'Prev',
+			useButtonsWithTouch: false,
+			swipeLeftEvent: 'swipeLeft',
+			swipeRightEvent: 'swipeRight',
+		},
 
 		/*
 			The initializer function sets internal variables for the slider and merges custom
@@ -33,7 +35,7 @@
 
 			// Apply options
 			if (typeof options === 'object') { 
-				this = $.extend(this, options);
+				this.options = $.extend(this.options, options);
 			}
 
 			// Add enabled class to slider
@@ -43,8 +45,8 @@
 			this.$slides.slice(1).addClass(this.nextClass);
 
 			// Insert the next/prev buttons
-			this.$nextButton = $('<a />', {class: 'cycle-button cycle-next', text: this.nextText}).appendTo(element);
-			this.$prevButton = $('<a />', {class: 'cycle-button cycle-prev', text: this.prevText}).appendTo(element).hide();
+			this.$nextButton = $('<a />', {class: 'cycle-button cycle-next', text: this.options.nextText}).appendTo(element);
+			this.$prevButton = $('<a />', {class: 'cycle-button cycle-prev', text: this.options.prevText}).appendTo(element).hide();
 
 			// Check for touch support
 			if (typeof window.ontouchstart !== 'undefined' && typeof $.fn.swipeLeft !== 'undefined') {
@@ -71,8 +73,8 @@
 
 			// Special touch listeners
 			if (this.touch === true) {
-				this.$slides.on(this.swipeLeftEvent, this.nextImage);
-				this.$slides.on(this.swipeRightEvent, this.prevImage);
+				this.$slides.on(this.options.swipeLeftEvent, this.nextImage);
+				this.$slides.on(this.options.swipeRightEvent, this.prevImage);
 			}
 
 		},
